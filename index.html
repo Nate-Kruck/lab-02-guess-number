@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/home.css">
+    <title>Guessing Game</title>
+</head>
+
+<body>
+    <header>
+
+        <div class="header">
+            <h1>Guessing Game</h1>
+            <p>You only get four guesses, so choose wisely.</p>
+                <ol>
+                    <h3>Rules</h3>
+                    <li>Guess a number between 1 and 20 (including "1" and "20").</li>
+                    <li>If you guess the correct number within the given parameters, you are a winner!</li>
+                    <li>If you do not guess the correct number within the given parameters further input will be disabled.</li>
+                </ol>
+        </div>
+
+    </header>
+    <main>
+
+        <section class="endGame">
+            <h2>Goodluck!</h2>
+            <p>Enter number below</p>
+            <input type="number" id="enter-number" min="1" max="20"><br>
+            <div>
+                <button id="begin">Begin</button>
+            </div>
+            <div class="response">
+                <span id="attempts-remaining">4 attempts remaining.</span>
+                <span id="guess"></span>
+            </div>
+        </section>
+                
+    </main>
+    
+    <footer id="your-results">
+        <div id="win-lose"></div>
+        <input type="reset" class="button" id="reset">
+        <div class="copy gutter-right">&copy; Nathan Kruckenberg Lab-02</div>
+    </footer>
+    
+    <script type="module" src="app.js"></script>
+
+</body>
+</html>
+
+
