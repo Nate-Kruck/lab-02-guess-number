@@ -14,7 +14,6 @@ const yourResults = document.querySelector('your-results');
 
 const WinOrLose = document.querySelector('win-lose');
 
-const endGame = document.querySelector('#endGame');
 
 const resetButton = document.querySelector('reset');
 
@@ -29,15 +28,65 @@ let attemptsLeft = 4;
 // blank field test if number is not entered user will receive alert that says 'Pleas enter a number'
 function submit(){
 
-const yourGuess = Number(input.value);
+    const yourGuess = Number(input.value);
 
-console.log(yourGuess);
+    console.log(yourGuess);
 
-// if user enters number less than 0 or greater than 20, the conditional statement below will alert user with error
-if (yourGuess > 20 || yourGuess < 0) {
-    alert('You must enter a number between "0" and "20"');
-    return;
-}
 
-const updatedResults = compareNumbers(yourGuess, correctNumber);
+    const updatedResults = compareNumbers(yourGuess, correctNumber);
+
+    function winner() {
+        WinOrLose.textContent = 'Hooray! You guessed correctly!';
+        yourResults.style.opacity = '5';
+    }
+
+    function loser() {
+        WinOrLose.textContent = 'Laa hoo zaa herr!';
+        yourResults.style.opacity = '5';
+    }
+
+    function reduceByOne() {
+        attemptsLeft--;
+        if (attemptsLeft <= 0)
+            loser();
+    }
+
+    function result(lowHigh) {
+        attemptsRemaining.textContent = `${attemptsLeft}attempts left.`;
+        guess.textContent = `Guess too ${lowHigh}`;
+    }
+
+    // winner
+    if (updatedResults === 0) {
+        winner();
+
+    // too low
+    } else if (updatedResults === -1) {
+        reduceByOne();
+        result('low');
+
+    // too high
+    } else { (updatedResults === 1);
+        reduceByOne();
+        result('high');
+    }}
+
+button.addEventListener('click', submit);
+
+resetButton.addEventListener('click');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // set event listeners to update state and DOM

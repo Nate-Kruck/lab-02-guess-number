@@ -12,7 +12,6 @@
 
 <body>
     <header>
-
         <div class="header">
             <h1>Guessing Game</h1>
             <p>You only get four guesses, so choose wisely.</p>
@@ -23,23 +22,20 @@
                     <li>If you do not guess the correct number within the given parameters further input will be disabled.</li>
                 </ol>
         </div>
-
     </header>
     <main>
-
         <section class="endGame">
             <h2>Goodluck!</h2>
             <p>Enter number below</p>
             <input type="number" id="enter-number" min="1" max="20"><br>
             <div>
-                <button id="begin">Begin</button>
+                <button type="submit" id="begin">Guess</button>
             </div>
             <div class="response">
                 <span id="attempts-remaining">4 attempts remaining.</span>
                 <span id="guess"></span>
             </div>
         </section>
-                
     </main>
     
     <footer id="your-results">
