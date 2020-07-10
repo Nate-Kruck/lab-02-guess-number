@@ -28,7 +28,7 @@ let attemptsLeft = 4;
 // blank field test if number is not entered user will receive alert that says 'Pleas enter a number'
 function submit(){
 
-    const yourGuess = Number(input.value);
+    let yourGuess = Number(input.value);
 
     console.log(yourGuess);
 
