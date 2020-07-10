@@ -1,17 +1,19 @@
-export default function compareNumbers(guess, correctNumber) {
+export function compareNumbers(player, computer) {
     
-    if (guess === correctNumber) {
+    if (player === computer) {
         return 0;
     
-    } else if (guess < correctNumber) {
+    } else if (player < computer) {
         return -1;
     
-    } else if (guess > correctNumber) {
+    } else if (player > computer) {
         return 1;
     
-    } else {
-        alert('Please enter a number');
-    
-    }
-};
+    } 
+}
 
+export function convertStrings(result) {
+    if (result === 0) return 'You win';
+    if (result === -1) return 'Too low';
+    if (result === 1) return 'Too high';
+}
