@@ -23,9 +23,6 @@ body {
     color: whitesmoke;
     background-image: url('https://wallpaper-house.com/data/out/6/wallpaper2you_97627.jpg');
     
-
-
-
 }
 
 .header h1 {
@@ -87,4 +84,26 @@ body {
 .response {
     text-align: center;
 }
+
+#reset {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 2px;
+}
+
+#your-results {
+    text-align: center;
+    
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
 

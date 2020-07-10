@@ -1,79 +1,58 @@
 // import functions and grab DOM elements
-import { compareNumbers } from './number.js';
+import { compareNumbers, convertStrings } from './number.js';
+
+const input = document.querySelector('#enter-number');
+
+const button = document.querySelector('#begin');
+
+const attemptsRemaining = document.querySelector('#attempts-remaining');
+
+//const guess = document.querySelector('#guess');
+
+const yourResults = document.querySelector('#your-results');
+
+const WinOrLose = document.querySelector('#win-lose');
+
+
+const resetButton = document.querySelector('#reset');
 
 // initialize state
-const input = document.querySelector('enter-number');
-
-const button = document.querySelector('begin');
-
-const attemptsRemaining = document.querySelector('attempts-remaining');
-
-const guess = document.querySelector('guess');
-
-const yourResults = document.querySelector('your-results');
-
-const WinOrLose = document.querySelector('win-lose');
-
-
-const resetButton = document.querySelector('reset');
-
-
-// number generator from MDN
-const correctNumber = Math.ceil(Math.random() * 20);
-console.log(correctNumber);
-
-// defining remaining attempts
 let attemptsLeft = 4;
-
-// blank field test if number is not entered user will receive alert that says 'Pleas enter a number'
-function submit(){
-
-    let yourGuess = Number(input.value);
-
-    console.log(yourGuess);
+let randomNumber = Math.ceil(Math.random() * 20);
 
 
-    const updatedResults = compareNumbers(yourGuess, correctNumber);
+button.addEventListener('click', () => {
+    attemptsLeft--;
+    attemptsRemaining.textContent = attemptsLeft;
+    const playerGuess = Number(input.value);
 
-    function winner() {
-        WinOrLose.textContent = 'Hooray! You guessed correctly!';
-        yourResults.style.opacity = '5';
+    const result = compareNumbers(playerGuess, randomNumber);
+
+    const finalResult = convertStrings(result);
+    yourResults.textContent = finalResult;
+
+    if (result === 0) {
+        WinOrLose.textContent = 'You win';
+        input.disabled = true;
+        button.disabled = true;   
     }
-
-    function loser() {
-        WinOrLose.textContent = 'Laa hoo zaa herr!';
-        yourResults.style.opacity = '5';
+    if (attemptsLeft === 0) {
+        WinOrLose.textContent = 'You lose';
+        input.disabled = true;
+        button.disabled = true;
     }
+});
 
-    function reduceByOne() {
-        attemptsLeft--;
-        if (attemptsLeft <= 0)
-            loser();
-    }
+resetButton.addEventListener('click', () => {
+    input.disabled = false;
+    button.disabled = false;
+    attemptsLeft = 4;
+    attemptsRemaining.textContent = attemptsLeft;
+    randomNumber = Math.ceil(Math.random() * 20);
+    input.value = '';
+});
 
-    function result(lowHigh) {
-        attemptsRemaining.textContent = `${attemptsLeft}attempts left.`;
-        guess.textContent = `Guess too ${lowHigh}`;
-    }
 
-    // winner
-    if (updatedResults === 0) {
-        winner();
-
-    // too low
-    } else if (updatedResults === -1) {
-        reduceByOne();
-        result('low');
-
-    // too high
-    } else { (updatedResults === 1);
-        reduceByOne();
-        result('high');
-    }}
-
-button.addEventListener('click', submit);
-
-resetButton.addEventListener('click');
 
 
 

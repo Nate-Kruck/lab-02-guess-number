@@ -1,4 +1,4 @@
-export default function compareNumbers(player, computer) {
+export function compareNumbers(player, computer) {
     
     if (player === computer) {
         return 0;
